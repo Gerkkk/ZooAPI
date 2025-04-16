@@ -1,13 +1,16 @@
 package zooapi.zooerp2.Domain.Entities;
 
+import lombok.Getter;
 import zooapi.zooerp2.Domain.Enums.AnimalType;
 import zooapi.zooerp2.Domain.Enums.EnclosureStatus;
 import zooapi.zooerp2.Domain.ValueObjects.AnimalNumber;
 import zooapi.zooerp2.Domain.ValueObjects.Size3D;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.UUID;
 
+@Getter
 public class Enclosure {
     private UUID id;
     private AnimalType animalType;
@@ -41,8 +44,21 @@ public class Enclosure {
         }
     }
 
-    public void removeAnimal(Animal animal) {
-        animals.remove(animal);
+    public Optional<Animal> checkAnimalInside(UUID animalId) {
+        for (Animal animal : animals) {
+            if (animal.getId().equals(animalId)) {
+                return Optional.of(animal);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    public Animal removeAnimal(UUID animalId) {
+        Animal[] ret = {null};
+        var t = animals.stream().filter(enclosure -> enclosure.getId() == animalId).findFirst();
+        t.ifPresent(enclosure -> {ret[0] = enclosure; animals.remove(enclosure);});
+        return ret[0];
     }
 
     public void Clear() {

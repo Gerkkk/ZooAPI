@@ -1,11 +1,13 @@
 package zooapi.zooerp2.Domain.Entities;
 
+import lombok.Getter;
 import zooapi.zooerp2.Domain.Enums.*;
 import zooapi.zooerp2.Domain.ValueObjects.Name;
 
 import java.util.Date;
 import java.util.UUID;
 
+@Getter
 public class Animal {
     private UUID id;
     private AnimalType animalType;

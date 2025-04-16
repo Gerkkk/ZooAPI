@@ -12,8 +12,8 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("HSE Car Service API")
+                        .title("Zoo API")
                         .version("1.0")
-                        .description("API для управления автомобилями"));
+                        .description("API для управления зоопарком"));
     }
 }

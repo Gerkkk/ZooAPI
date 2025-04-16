@@ -1,19 +1,25 @@
 package zooapi.zooerp2.Domain.Entities;
 
+import lombok.Getter;
 import zooapi.zooerp2.Domain.Enums.FoodType;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+@Getter
 public class FeedingSchedule {
+    private UUID id;
     private UUID animalId;
     private Date startTime;
     private Date nextTime;
     private Duration delta;
     private FoodType foodType;
 
-    public FeedingSchedule(UUID animalId, Date startTime, Duration delta, FoodType foodType) {
+    public FeedingSchedule(UUID id, UUID animalId, Date startTime, Duration delta, FoodType foodType) {
+        this.id = id;
         this.animalId = animalId;
         this.startTime = startTime;
         this.delta = delta;
@@ -27,5 +33,21 @@ public class FeedingSchedule {
 
     public void changeDelta(Duration delta) {
         this.delta = delta;
+    }
+
+    public List<Feeding> getFeedingsInPeriod(Date start, Date end) {
+        ArrayList<Feeding> feedings = new ArrayList<>();
+
+        var current = this.startTime;
+
+        while (current.before(end)) {
+            if (current.after(start)) {
+                feedings.add(new Feeding(this.animalId, current, this.foodType));
+            }
+
+            current = Date.from(current.toInstant().plus(this.delta));
+        }
+
+        return feedings;
     }
 }

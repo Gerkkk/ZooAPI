@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import zooapi.zooerp2.Domain.DTO.Requests.FeedingRequest;
 import zooapi.zooerp2.Domain.Entities.Animal;
+import zooapi.zooerp2.Domain.Entities.Feeding;
 import zooapi.zooerp2.Domain.Entities.FeedingSchedule;
 import zooapi.zooerp2.Domain.Interfaces.Application.FeedingServiceI;
 
@@ -26,8 +27,8 @@ public class FeedingController {
 
     @GetMapping("/")
     @Operation(summary = "Получить расписание приемов пищи")
-    public ResponseEntity<ArrayList<FeedingSchedule>> getFeedingSchedule(@Valid @RequestBody FeedingRequest request,
-                                                                         BindingResult bindingResult) {
+    public ResponseEntity<ArrayList<Feeding>> getFeedingSchedule(@Valid @RequestBody FeedingRequest request,
+                                                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
                     bindingResult.getAllErrors().get(0).getDefaultMessage());

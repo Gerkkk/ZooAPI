@@ -19,12 +19,8 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
-
     implementation("org.springframework.boot:spring-boot-starter-web")
-
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("org.postgresql:postgresql")
-
+    implementation("org.springframework.boot:spring-boot-starter-aop")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5")
 
     compileOnly("org.projectlombok:lombok")
@@ -33,10 +29,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    implementation("org.springframework.boot:spring-boot-starter-aop")
-
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
 }
 
 tasks.withType<Test> {
