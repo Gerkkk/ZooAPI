@@ -12,7 +12,7 @@ import java.util.UUID;
 public class FeedingScheduleFactory {
     int lastId = 0;
 
-    public FeedingSchedule createFeedingSchedule(UUID animalId,  Date startTime, Duration delta, FoodType foodType) {
-        return new FeedingSchedule(UUID.fromString(Integer.toString(++lastId)), animalId,  startTime, delta, foodType);
+    public FeedingSchedule createFeedingSchedule(int animalId,  Date startTime, Duration delta, FoodType foodType) {
+        return new FeedingSchedule(++lastId, animalId,  startTime, delta, foodType);
     }
 }

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public interface AnimalRepositoryI {
     Optional<Animal> addAnimal(Animal animal);
-    void deleteAnimal(UUID animalId);
-    Optional<Animal> getAnimal(UUID animalId);
+    void deleteAnimal(int animalId);
+    Optional<Animal> getAnimal(int animalId);
     int getAnimalCount();
 }

@@ -11,14 +11,14 @@ import java.util.UUID;
 
 @Getter
 public class FeedingSchedule {
-    private UUID id;
-    private UUID animalId;
+    private int id;
+    private int animalId;
     private Date startTime;
     private Date nextTime;
     private Duration delta;
     private FoodType foodType;
 
-    public FeedingSchedule(UUID id, UUID animalId, Date startTime, Duration delta, FoodType foodType) {
+    public FeedingSchedule(int id, int animalId, Date startTime, Duration delta, FoodType foodType) {
         this.id = id;
         this.animalId = animalId;
         this.startTime = startTime;

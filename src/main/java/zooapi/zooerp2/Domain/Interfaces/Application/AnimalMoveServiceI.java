@@ -6,5 +6,5 @@ import zooapi.zooerp2.Domain.Entities.Enclosure;
 import java.util.UUID;
 
 public interface AnimalMoveServiceI {
-    void move(UUID animalId, UUID enclosureId);
+    void move(int animalId, int enclosureId);
 }

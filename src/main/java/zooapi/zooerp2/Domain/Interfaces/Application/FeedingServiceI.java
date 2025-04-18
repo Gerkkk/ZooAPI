@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public interface FeedingServiceI {
     ArrayList<Feeding> getFeedingSchedule(Date start, Date end);
-    void feed(UUID scheduleId);
-    Optional<FeedingSchedule> addFeedingSchedule(UUID animalId, Date startTime, Duration delta, FoodType foodType);
-    void deleteFeedingSchedule(UUID animalId);
+    void feed(int scheduleId);
+    Optional<FeedingSchedule> addFeedingSchedule(int animalId, Date startTime, Duration delta, FoodType foodType);
+    void deleteFeedingSchedule(int animalId);
 }

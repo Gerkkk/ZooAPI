@@ -12,9 +12,9 @@ import java.util.UUID;
 public class AnimalMoveRequest {
     @Schema(description = "id животного", example = "6")
     @Min(value = 1, message = "Минимальный id равен 1")
-    UUID animalId;
+    int animalId;
 
     @Schema(description = "id вольера", example = "6")
     @Min(value = 1, message = "Минимальный id равен 1")
-    UUID enclosureId;
+    int enclosureId;
 }

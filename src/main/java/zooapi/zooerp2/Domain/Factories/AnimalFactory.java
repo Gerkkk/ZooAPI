@@ -13,6 +13,6 @@ public class AnimalFactory {
     int lastId = 0;
 
     public Animal createAnimal(AnimalType animalType, Name name, Sex sex, FoodType foodType, Date birthday) {
-        return new Animal(UUID.fromString(Integer.toString(++lastId)), animalType, name, sex, foodType, birthday);
+        return new Animal(++lastId, animalType, name, sex, foodType, birthday);
     }
 }

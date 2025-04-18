@@ -29,12 +29,12 @@ public class AnimalService implements AnimalServiceI {
     }
 
     @Override
-    public void deleteAnimal(UUID animalId) {
+    public void deleteAnimal(int animalId) {
         animalRepository.deleteAnimal(animalId);
     }
 
     @Override
-    public Optional<Animal> getAnimal(UUID animalId) {
+    public Optional<Animal> getAnimal(int animalId) {
         return animalRepository.getAnimal(animalId);
     }
 }

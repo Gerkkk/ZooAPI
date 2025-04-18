@@ -27,7 +27,7 @@ public class FeedingRepository implements FeedingRepositoryI {
     }
 
     @Override
-    public void feed(UUID scheduleId) {
+    public void feed(int scheduleId) {
         var t = feedingSchedules.stream().filter(schedule -> schedule.getId() == scheduleId).findFirst();
         t.ifPresent(FeedingSchedule::completeFeeding);
     }
@@ -43,7 +43,7 @@ public class FeedingRepository implements FeedingRepositoryI {
     }
 
     @Override
-    public void deleteFeedingSchedule(UUID scheduleId) {
+    public void deleteFeedingSchedule(int scheduleId) {
         var t = feedingSchedules.stream().filter(schedule -> schedule.getId() == scheduleId).findFirst();
         t.ifPresent(schedule -> feedingSchedules.remove(schedule));
     }

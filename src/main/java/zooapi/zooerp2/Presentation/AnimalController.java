@@ -26,25 +26,25 @@ import java.util.UUID;
 public class AnimalController {
     private final AnimalServiceI animalService;
 
-    @GetMapping("/{vin}")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить животное по Id")
-    public ResponseEntity<Animal> getAnimalById(@PathVariable UUID id) {
+    public ResponseEntity<Animal> getAnimalById(@PathVariable int id) {
         return animalService.getAnimal(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{vin}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удалить животное")
-    public ResponseEntity<Void> deleteCar(@PathVariable UUID vin) {
-        animalService.deleteAnimal(vin);
+    public ResponseEntity<Void> deleteCar(@PathVariable int id) {
+        animalService.deleteAnimal(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping
     @Operation(summary = "Создать животное",
             description = "")
-    public ResponseEntity<Animal> createCar(
+    public ResponseEntity<Animal> createAnimal(
             @Valid @RequestBody AnimalRequest request,
             BindingResult bindingResult) {
 

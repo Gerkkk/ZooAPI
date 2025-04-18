@@ -26,12 +26,12 @@ public class EnclosureService implements EnclosureServiceI {
     }
 
     @Override
-    public void deleteEnclosure(UUID id) {
+    public void deleteEnclosure(int id) {
         enclosureRepository.deleteEnclosure(id);
     }
 
     @Override
-    public Optional<Enclosure> getEnclosure(UUID animalId) {
+    public Optional<Enclosure> getEnclosure(int animalId) {
         return enclosureRepository.getEnclosure(animalId);
     }
 }

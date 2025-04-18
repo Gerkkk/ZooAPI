@@ -13,6 +13,6 @@ public class EnclosureFactory {
     int lastId = 0;
 
     public Enclosure createEnclosureFactory(AnimalType animalType, Size3D size3D, AnimalNumber maxAnimalNumber) {
-        return new Enclosure(UUID.fromString(Integer.toString(++lastId)), animalType, size3D, maxAnimalNumber);
+        return new Enclosure(++lastId, animalType, size3D, maxAnimalNumber);
     }
 }

@@ -25,18 +25,18 @@ import java.util.UUID;
 public class EnclosureController {
     private final EnclosureServiceI enclosureService;
 
-    @GetMapping("/{vin}")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить вольер по Id")
-    public ResponseEntity<Enclosure> getCarByVin(@PathVariable UUID id) {
+    public ResponseEntity<Enclosure> getCarByVin(@PathVariable int id) {
         return enclosureService.getEnclosure(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{vin}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удалить вольер")
-    public ResponseEntity<Void> deleteCar(@PathVariable UUID vin) {
-        enclosureService.deleteEnclosure(vin);
+    public ResponseEntity<Void> deleteCar(@PathVariable int id) {
+        enclosureService.deleteEnclosure(id);
         return ResponseEntity.ok().build();
     }
 

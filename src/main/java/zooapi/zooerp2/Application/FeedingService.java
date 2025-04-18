@@ -30,18 +30,18 @@ public class FeedingService implements FeedingServiceI {
     }
 
     @Override
-    public void feed(UUID scheduleId) {
+    public void feed(int scheduleId) {
         feedingRepository.feed(scheduleId);
     }
 
     @Override
-    public Optional<FeedingSchedule> addFeedingSchedule(UUID animalId, Date startTime, Duration delta, FoodType foodType) {
+    public Optional<FeedingSchedule> addFeedingSchedule(int animalId, Date startTime, Duration delta, FoodType foodType) {
         var newSched = feedingScheduleFactory.createFeedingSchedule(animalId, startTime, delta, foodType);
         return feedingRepository.addFeedingSchedule(newSched);
     }
 
     @Override
-    public void deleteFeedingSchedule(UUID animalId) {
+    public void deleteFeedingSchedule(int animalId) {
         feedingRepository.deleteFeedingSchedule(animalId);
     }
 }

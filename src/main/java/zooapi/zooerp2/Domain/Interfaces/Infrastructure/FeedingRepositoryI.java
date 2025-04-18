@@ -10,8 +10,8 @@ import java.util.*;
 
 public interface FeedingRepositoryI {
     List<Feeding> getFeedingSchedule(Date start, Date end);
-    void feed(UUID scheduleId);
+    void feed(int scheduleId);
     Optional<FeedingSchedule> addFeedingSchedule(FeedingSchedule feedingSchedule);
-    void deleteFeedingSchedule(UUID scheduleId);
+    void deleteFeedingSchedule(int scheduleId);
     int getFeedingScheduleCount();
 }

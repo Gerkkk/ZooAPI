@@ -16,7 +16,7 @@ import zooapi.zooerp2.Domain.Interfaces.Application.StatServiceI;
 public class StatController {
     private final StatServiceI statService;
 
-    @GetMapping("/")
+    @GetMapping("")
     @Operation(summary = "Вернуть базовую статистику зоопарка",
             description = "")
     public ResponseEntity<CommonStats> getGeneralStat() {

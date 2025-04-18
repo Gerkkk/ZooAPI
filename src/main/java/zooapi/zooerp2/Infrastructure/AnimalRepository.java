@@ -25,14 +25,14 @@ public class AnimalRepository implements AnimalRepositoryI {
     }
 
     @Override
-    public void deleteAnimal(UUID animalId) {
+    public void deleteAnimal(int animalId) {
         var t = animals.stream().filter(animal -> animal.getId() == animalId).findFirst();
         t.ifPresent(animal -> animals.remove(animal));
     }
 
 
     @Override
-    public Optional<Animal> getAnimal(UUID animalId) {
+    public Optional<Animal> getAnimal(int animalId) {
         return animals.stream().filter(animal -> animal.getId() == animalId).findFirst();
     }
 

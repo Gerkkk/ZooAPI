@@ -12,6 +12,6 @@ import java.util.UUID;
 
 public interface AnimalServiceI {
     Optional<Animal> addAnimal(AnimalType animalType, Name name, Sex sex, FoodType foodType, Date birthday);
-    void deleteAnimal(UUID animalId);
-    Optional<Animal> getAnimal(UUID animalId);
+    void deleteAnimal(int animalId);
+    Optional<Animal> getAnimal(int animalId);
 }

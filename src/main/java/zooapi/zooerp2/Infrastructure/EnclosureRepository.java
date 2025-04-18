@@ -26,14 +26,14 @@ public class EnclosureRepository implements EnclosureRepositoryI {
     }
 
     @Override
-    public void deleteEnclosure(UUID animalId) {
+    public void deleteEnclosure(int animalId) {
         var t = enclosures.stream().filter(enclosure -> enclosure.getId() == animalId).findFirst();
         t.ifPresent(animal -> enclosures.remove(animal));
     }
 
 
     @Override
-    public Optional<Enclosure> getEnclosure(UUID animalId) {
+    public Optional<Enclosure> getEnclosure(int animalId) {
         return enclosures.stream().filter(enclosure -> enclosure.getId() == animalId).findFirst();
     }
 
@@ -50,7 +50,7 @@ public class EnclosureRepository implements EnclosureRepositoryI {
     }
 
     @Override
-    public Optional<Enclosure> getEnclosureByAnimalId(UUID animalId) {
+    public Optional<Enclosure> getEnclosureByAnimalId(int animalId) {
         return enclosures.stream().filter(enclosure -> enclosure.checkAnimalInside(animalId).isPresent()).findFirst();
     }
 }

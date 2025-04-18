@@ -11,6 +11,6 @@ import java.util.UUID;
 
 public interface EnclosureServiceI {
     Optional<Enclosure> addEnclosure(AnimalType animalType, Size3D size3D, AnimalNumber maxAnimalNumber);
-    void deleteEnclosure(UUID id);
-    Optional<Enclosure> getEnclosure(UUID animalId);
+    void deleteEnclosure(int id);
+    Optional<Enclosure> getEnclosure(int animalId);
 }

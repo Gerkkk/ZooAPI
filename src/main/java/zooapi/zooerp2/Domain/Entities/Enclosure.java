@@ -12,14 +12,14 @@ import java.util.UUID;
 
 @Getter
 public class Enclosure {
-    private UUID id;
+    private int id;
     private AnimalType animalType;
     private Size3D size3D;
     private AnimalNumber maxAnimalNumber;
     private EnclosureStatus status;
     ArrayList<Animal> animals;
 
-    public Enclosure(UUID id, AnimalType animalType, Size3D size3D, AnimalNumber maxAnimalNumber) {
+    public Enclosure(int id, AnimalType animalType, Size3D size3D, AnimalNumber maxAnimalNumber) {
         this.id = id;
         this.animalType = animalType;
         this.size3D = size3D;
@@ -44,9 +44,9 @@ public class Enclosure {
         }
     }
 
-    public Optional<Animal> checkAnimalInside(UUID animalId) {
+    public Optional<Animal> checkAnimalInside(int animalId) {
         for (Animal animal : animals) {
-            if (animal.getId().equals(animalId)) {
+            if (animal.getId() == animalId) {
                 return Optional.of(animal);
             }
         }
@@ -54,7 +54,7 @@ public class Enclosure {
         return Optional.empty();
     }
 
-    public Animal removeAnimal(UUID animalId) {
+    public Animal removeAnimal(int animalId) {
         Animal[] ret = {null};
         var t = animals.stream().filter(enclosure -> enclosure.getId() == animalId).findFirst();
         t.ifPresent(enclosure -> {ret[0] = enclosure; animals.remove(enclosure);});

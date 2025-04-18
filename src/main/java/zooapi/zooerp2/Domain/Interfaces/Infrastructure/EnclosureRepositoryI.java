@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public interface EnclosureRepositoryI {
     Optional<Enclosure> addEnclosure(Enclosure e);
-    void deleteEnclosure(UUID animalId);
-    Optional<Enclosure> getEnclosure(UUID animalId);
+    void deleteEnclosure(int animalId);
+    Optional<Enclosure> getEnclosure(int animalId);
     int getEnclosureCount();
     int getEnclosureCapacity();
-    Optional<Enclosure> getEnclosureByAnimalId(UUID animalId);
+    Optional<Enclosure> getEnclosureByAnimalId(int animalId);
 }
