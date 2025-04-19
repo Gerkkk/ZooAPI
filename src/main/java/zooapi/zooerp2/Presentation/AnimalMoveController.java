@@ -24,14 +24,18 @@ public class AnimalMoveController {
 
     @PostMapping("/")
     @Operation(summary = "Перевести животное с заданным id в вольер с заданным id")
-    public ResponseEntity<ArrayList<FeedingSchedule>> getFeedingSchedule(@Valid @RequestBody AnimalMoveRequest request,
+    public ResponseEntity<Boolean> moveAnimal(@Valid @RequestBody AnimalMoveRequest request,
                                                                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
                     bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
 
-        animalMoveService.move(request.getAnimalId(), request.getEnclosureId());
+        try {
+            animalMoveService.move(request.getAnimalId(), request.getEnclosureId());
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No such user or such closure");
+        }
 
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }

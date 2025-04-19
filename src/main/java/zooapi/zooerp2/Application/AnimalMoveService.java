@@ -19,7 +19,7 @@ public class AnimalMoveService implements AnimalMoveServiceI {
     private final ApplicationEventPublisher eventPublisher;
 
     @Override
-    public void move(int animalId, int enclosureId) {
+    public void move(int animalId, int enclosureId) throws IllegalArgumentException {
         var curEnclosure = enclosureRepository.getEnclosureByAnimalId(animalId);
         var curEncId = -1;
 
